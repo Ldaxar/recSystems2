@@ -15,10 +15,11 @@ public class PearsonSigWeightingMetric implements SimilarityMetric {
 
 	@Override
 	public double getSimilarity(Profile p1, Profile p2) {
-		// TODO Auto-generated method stub
-		PearsonMetric pm = new PearsonMetric();
+				PearsonMetric pm = new PearsonMetric();
 		Set<Integer> common = p1.getCommonIds(p2);
-		return (common.size() < threshold) ? pm.getSimilarity(p1, p2)*(common.size()/threshold) : pm.getSimilarity(p1, p2);
+
+		return (common.size() < threshold) ? 
+				pm.getSimilarity(p1, p2)*((double)common.size()/threshold) : pm.getSimilarity(p1, p2);
 	}
 
 }
